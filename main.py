@@ -5,11 +5,11 @@ db = connect(input("Create or connect SQLite3 database: "))
 cursor = db.cursor()
 
 window = Tk()
-window.geometry("500x500")
+window.geometry("800x500")
 window.title("Database Graphical User Controller")
 
-entry = Entry(window)
-output = Listbox(window)
+entry = Entry(window, width=400)
+output = Listbox(window, width=400)
 
 entry.grid(column=0, row=0)
 output.grid(column=0, row=1)
