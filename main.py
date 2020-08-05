@@ -11,8 +11,8 @@ window.title("Database Graphical User Controller")
 entry = Entry(window, width=400)
 output = Listbox(window, width=400)
 
-entry.grid(column=0, row=0)
-output.grid(column=0, row=1)
+entry.place(x=10, y=10, width=300, height=30)
+output.place(x=10, y=40, width=780, height=400)
 
 sty = input("Customizable styling: ")
 
@@ -104,9 +104,9 @@ exe = Button(window, text="Execute command", command=execute)
 clr = Button(window, text="Clear input", command=clear)
 com = Button(window, text="Commit changes", command=commit)
 
-exe.grid(column=1, row=0)
-clr.grid(column=2, row=0)
-com.grid(column=3, row=0)
+exe.place(x=300, y=10, width=150, height=30)
+clr.place(x=450, y=10, width=150, height=30)
+com.place(x=640, y=10, width=150, height=30)
 
 
 window.mainloop()
