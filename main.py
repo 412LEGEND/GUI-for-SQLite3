@@ -105,7 +105,7 @@ def stylemethods(ls):
             temp += orders[i % len(orders)] + ": " + str(ls[i]) + "; "
         return temp
     else:
-        return _stylify(style, ls)
+        return stylify(ls)
 
 
 def execute():
