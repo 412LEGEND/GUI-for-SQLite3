@@ -86,7 +86,7 @@ def stylemethods(ls):
         for i in range(0, len(ls)):
             temp += str(hex(i)) + ": " + str(ls[i]) + "; "
         return temp
-    elif style == "order_alnum":
+    elif style == "order_alpha":
         temp = ""
         alnum = "abcdefghijklmnopqrstuvwxyz"
         for i in range(0, len(ls)):
