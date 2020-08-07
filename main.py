@@ -4,6 +4,11 @@ from sqlite3 import *
 db = connect(input("Create or connect SQLite3 database: "))
 cursor = db.cursor()
 
+style = input("Customizable styling (default: order_num):\n")
+
+if style == "":
+    style = "order_num"
+
 window = Tk()
 window.geometry("800x500")
 window.title("Database Graphical User Controller")
@@ -13,8 +18,6 @@ output = Listbox(window, width=400)
 
 entry.place(x=10, y=10, width=300, height=30)
 output.place(x=10, y=40, width=780, height=400)
-
-style = input("Customizable styling: ")
 
 def l2s(lst):
     strings = []
@@ -114,6 +117,7 @@ def execute():
     cursor.execute(entry.get())
     for col in l2s(cursor.fetchall()):
         output.insert("end", stylemethods(col))
+    commit()
 
 
 def clear():
@@ -127,11 +131,9 @@ def commit():
 
 exe = Button(window, text="Execute command", command=execute)
 clr = Button(window, text="Clear input", command=clear)
-com = Button(window, text="Commit changes", command=commit)
 
 exe.place(x=300, y=10, width=150, height=30)
 clr.place(x=450, y=10, width=150, height=30)
-com.place(x=640, y=10, width=150, height=30)
 
 
 window.mainloop()
