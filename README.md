@@ -2,7 +2,7 @@
 A simple GUI for SQLite3, written in Python.
 
 ## Prerequisites
-You need to have Python 3 and SQLite3 installed correctly.
+You need to have Python 3 and SQLite3 (bundled with Python runtime) installed correctly.
 
 ## Instructions
 
@@ -25,6 +25,8 @@ The next line you'll have to enter is the style of the input.
 - order_num: Ordered list, e.g. `0: a; 1: b; ...`
 
 - order_hex: Hexadecimal. E.g. `0x00:a; 0x01:b; 0x02:c;...`
+
+- order_alpha: Alphabetical E.g. `a: 1; b: 2; c: 3; ...`
 
 - order_alnum: Alphanumerical. E.g. `0: 0; ...; a: 11; b: 12; ...; z: 36; 0: 37; ...`
 
