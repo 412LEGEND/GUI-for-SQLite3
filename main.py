@@ -125,26 +125,41 @@ def execute():
         output.insert("end", stylemethods(col))
     commit()
 
+    
+def event_callback_execute(event):
+    global cursor, entry, output
+    output.delete(0, "end")
+    cursor.execute(entry.get())
+    for col in l2s(cursor.fetchall()):
+        output.insert("end", stylemethods(col))
+    commit()
+    
 
 def clear():
     global entry
     entry.delete(0, "end")
+    
+    
+def event_callback_clear(event):
+    global entry
+    entry.delete(0, "end")
+    
 
 def commit():
     global db
     db.commit()
 
 
-exe = Button(window, text="Execute command", command=execute)
+exe = Button(window, text="Execute\ncommand", command=execute)
 clr = Button(window, text="Clear input", command=clear)
 
 
-exe.place(x=590, y=10, width=100, height=30)
-clr.place(x=690, y=10, width=100, height=30)
+exe.place(x=590, y=10, width=100, height=50)
+clr.place(x=690, y=10, width=100, height=50)
 
 
-window.bind("<Return>", execute)
-window.bind("<Control-Backspace>")
+window.bind("<Return>", event_callback_execute)
+window.bind("<Control-Backspace>", event_callback_clear)
 
 
 window.mainloop()
