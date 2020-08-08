@@ -4,20 +4,26 @@ from sqlite3 import *
 db = connect(input("Create or connect SQLite3 database: "))
 cursor = db.cursor()
 
+
 style = input("Customizable styling (default: order_num):\n")
+
 
 if style == "":
     style = "order_num"
 
+    
 window = Tk()
 window.geometry("800x500")
 window.title("Database Graphical User Controller")
 
+
 entry = Entry(window, width=400)
 output = Listbox(window, width=400)
 
-entry.place(x=10, y=10, width=300, height=30)
-output.place(x=10, y=40, width=780, height=400)
+
+entry.place(x=10, y=10, width=580, height=50)
+output.place(x=10, y=60, width=780, height=430)
+
 
 def l2s(lst):
     strings = []
@@ -132,8 +138,13 @@ def commit():
 exe = Button(window, text="Execute command", command=execute)
 clr = Button(window, text="Clear input", command=clear)
 
-exe.place(x=300, y=10, width=150, height=30)
-clr.place(x=450, y=10, width=150, height=30)
+
+exe.place(x=590, y=10, width=100, height=30)
+clr.place(x=690, y=10, width=100, height=30)
+
+
+window.bind("<Return>", execute)
+window.bind("<Control-Backspace>")
 
 
 window.mainloop()
