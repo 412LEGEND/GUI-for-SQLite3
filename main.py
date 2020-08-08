@@ -159,7 +159,7 @@ clr.place(x=690, y=10, width=100, height=50)
 
 
 window.bind("<Return>", event_callback_execute)
-window.bind("<Control-Backspace>", event_callback_clear)
+window.bind("<Control-Shift-C>", event_callback_clear)
 
 
 window.mainloop()
