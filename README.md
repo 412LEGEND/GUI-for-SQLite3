@@ -51,6 +51,6 @@ The program supports user-defined styles.
 ### 3. Executing and committing
 
 Enter SQL commands in the entry, execute by clicking the button "Execute command", clear the entry by clicking "Clear input".
-Every changes you made will not save automatically to prevent unexpected results. Only when you click "Commit changes" the program will save.
+Every changes you made will save automatically.
 
 ### 4. Enjoy!

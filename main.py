@@ -4,17 +4,26 @@ from sqlite3 import *
 db = connect(input("Create or connect SQLite3 database: "))
 cursor = db.cursor()
 
+
+style = input("Customizable styling (default: order_num):\n")
+
+
+if style == "":
+    style = "order_num"
+
+    
 window = Tk()
 window.geometry("800x500")
 window.title("Database Graphical User Controller")
 
+
 entry = Entry(window, width=400)
 output = Listbox(window, width=400)
 
-entry.place(x=10, y=10, width=300, height=30)
-output.place(x=10, y=40, width=780, height=400)
 
-style = input("Customizable styling: ")
+entry.place(x=10, y=10, width=580, height=50)
+output.place(x=10, y=60, width=780, height=430)
+
 
 def l2s(lst):
     strings = []
@@ -114,24 +123,38 @@ def execute():
     cursor.execute(entry.get())
     for col in l2s(cursor.fetchall()):
         output.insert("end", stylemethods(col))
+    commit()
 
+    
+def event_callback_execute(event):
+    global cursor, entry, output
+    output.delete(0, "end")
+    cursor.execute(entry.get())
+    for col in l2s(cursor.fetchall()):
+        output.insert("end", stylemethods(col))
+    commit()
+    clear()
+    
 
 def clear():
     global entry
     entry.delete(0, "end")
+    
 
 def commit():
     global db
     db.commit()
 
 
-exe = Button(window, text="Execute command", command=execute)
+exe = Button(window, text="Execute\ncommand", command=execute)
 clr = Button(window, text="Clear input", command=clear)
-com = Button(window, text="Commit changes", command=commit)
 
-exe.place(x=300, y=10, width=150, height=30)
-clr.place(x=450, y=10, width=150, height=30)
-com.place(x=640, y=10, width=150, height=30)
+
+exe.place(x=590, y=10, width=100, height=50)
+clr.place(x=690, y=10, width=100, height=50)
+
+
+window.bind("<Return>", event_callback_execute)
 
 
 window.mainloop()
