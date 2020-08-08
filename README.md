@@ -53,4 +53,8 @@ The program supports user-defined styles.
 Enter SQL commands in the entry, execute by clicking the button "Execute command", clear the entry by clicking "Clear input".
 Every changes you made will save automatically.
 
+#### Key Bindings
+
+If you press the button "execute command" the command will be executed, but not cleared. If you want to execute and immediately clear input, press `Enter`.
+
 ### 4. Enjoy!
