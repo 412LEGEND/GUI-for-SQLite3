@@ -133,14 +133,10 @@ def event_callback_execute(event):
     for col in l2s(cursor.fetchall()):
         output.insert("end", stylemethods(col))
     commit()
+    clear()
     
 
 def clear():
-    global entry
-    entry.delete(0, "end")
-    
-    
-def event_callback_clear(event):
     global entry
     entry.delete(0, "end")
     
@@ -159,7 +155,6 @@ clr.place(x=690, y=10, width=100, height=50)
 
 
 window.bind("<Return>", event_callback_execute)
-window.bind("<Control-Shift-C>", event_callback_clear)
 
 
 window.mainloop()
