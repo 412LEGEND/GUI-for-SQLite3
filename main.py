@@ -127,12 +127,7 @@ def execute():
 
     
 def event_callback_execute(event):
-    global cursor, entry, output
-    output.delete(0, "end")
-    cursor.execute(entry.get())
-    for col in l2s(cursor.fetchall()):
-        output.insert("end", stylemethods(col))
-    commit()
+    execute()
     clear()
     
 
